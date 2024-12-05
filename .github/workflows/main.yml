@@ -2,7 +2,7 @@ name: Run Playwright Script
 
 on:
   schedule:
-    - cron: "0 10 * * *" # runs 5 am eastern
+    - cron: "0 10 * * *" # runs at 5 am eastern
   workflow_dispatch: # Allows manual trigger
 
 jobs:
