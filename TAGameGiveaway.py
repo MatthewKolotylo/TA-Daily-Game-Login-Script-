@@ -32,5 +32,6 @@ try:
 
     with sync_playwright() as playwright:
         run(playwright)
+        print("Giveaway entered successfully.")
 except Exception as e:
     print("Script can only be run once a day, you have already entered the giveaway today.")
