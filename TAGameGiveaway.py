@@ -15,7 +15,7 @@ print("gathering login information")
 
 try:
     def run(playwright: Playwright) -> None:
-        browser = playwright.chromium.launch(headless=False)
+        browser = playwright.chromium.launch(headless=True)
         context = browser.new_context()
         page = context.new_page()
         page.goto("https://www.trueachievements.com/login?return=%2flogout-devices")
@@ -40,6 +40,7 @@ try:
         run(playwright)
         print("Giveaway entered successfully.")
 except Exception as e:
-    print(e)
-    print("Error entering giveaway")
+    print(f"Error entering giveaway: {str(e)}")
+    raise  # Re-raise the error so the workflow marks the job as failed.
+
     
