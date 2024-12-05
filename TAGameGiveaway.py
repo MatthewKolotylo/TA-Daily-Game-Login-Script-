@@ -11,7 +11,7 @@ env_path = Path(".env")
 load_dotenv(dotenv_path=env_path)
 username = os.getenv("TAUSERNAME")
 password = os.getenv("TAPASSWORD")
-
+print("gathering login information")
 
 try:
     def run(playwright: Playwright) -> None:
@@ -19,13 +19,19 @@ try:
         context = browser.new_context()
         page = context.new_page()
         page.goto("https://www.trueachievements.com/login?return=%2flogout-devices")
+        print("Navigating to TrueAchievements login page")
         page.get_by_placeholder("Enter your GamerTag").click()
         page.get_by_placeholder("Enter your GamerTag").fill(username)
+        print("Entering username")
         page.get_by_placeholder("Enter your password").click()
         page.get_by_placeholder("Enter your password").fill(password)
+        print("Entering password")
         page.get_by_role("link", name="Log In").click()
+        print("Logging in")
         page.goto("https://www.trueachievements.com/win-xbox-games")  
+        print("Navigating to giveaway page")
         page.get_by_text("Click here for a chance to win").click()
+        print("Entering giveaway")
         context.close()
         browser.close()
 
@@ -34,4 +40,6 @@ try:
         run(playwright)
         print("Giveaway entered successfully.")
 except Exception as e:
-    print("Script can only be run once a day, you have already entered the giveaway today.")
+    print(e)
+    print("Error entering giveaway")
+    
