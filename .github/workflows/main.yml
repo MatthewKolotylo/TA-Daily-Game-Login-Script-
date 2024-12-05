@@ -1,8 +1,8 @@
-name: Run Playwright Script
+name: Run TAGameGiveaway Script
 
 on:
   schedule:
-    - cron: "0 10 * * *" # runs at 5 am eastern
+    - cron: "0 10 * * *" # Runs at 5 am Eastern (10 am UTC)
   workflow_dispatch: # Allows manual trigger
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: "3.12" # Specify the Python version
+        python-version: "3.9" # Change if necessary
 
     - name: Install dependencies
       run: |
@@ -24,8 +24,12 @@ jobs:
         pip install playwright python-dotenv
         playwright install --with-deps
 
-    - name: Run Playwright script
+    - name: Verify script content
+      run: cat TAGameGiveaway.py
+
+    - name: Run TAGameGiveaway Script
       env:
-        TAUSERNAME: ${{ secrets.TAUSERNAME }} # Secret for your username
-        TAPASSWORD: ${{ secrets.TAPASSWORD }} # Secret for your password
-      run: python TAGameGiveaway.py 
+        TAUSERNAME: ${{ secrets.TAUSERNAME }}
+        TAPASSWORD: ${{ secrets.TAPASSWORD }}
+      run: python TAGameGiveaway.py
+
