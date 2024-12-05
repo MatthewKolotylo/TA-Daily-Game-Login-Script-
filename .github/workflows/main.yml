@@ -1,4 +1,4 @@
-name: Run Playwright Script
+name: Run TAGameGiveaway Script
 
 on:
   schedule:
@@ -24,7 +24,7 @@ jobs:
         pip install playwright python-dotenv
         playwright install --with-deps
 
-    - name: Run Playwright script
+    - name: Run TAGameGiveaway Script
       env:
         TAUSERNAME: ${{ secrets.TAUSERNAME }} # Secret for your username
         TAPASSWORD: ${{ secrets.TAPASSWORD }} # Secret for your password
