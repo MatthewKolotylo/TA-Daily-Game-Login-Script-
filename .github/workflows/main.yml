@@ -31,4 +31,10 @@ jobs:
       env:
         TAUSERNAME: ${{ secrets.TAUSERNAME }}
         TAPASSWORD: ${{ secrets.TAPASSWORD }}
+        GMAILUSERNAME: ${{ secrets.GMAILUSERNAME }}
+        GMAILPASSWORD: ${{ secrets.GMAILPASSWORD }}
+        MYEMAIL: ${{ secrets.MYEMAIL }}
+
+
+
       run: python TAGameGiveaway.py
