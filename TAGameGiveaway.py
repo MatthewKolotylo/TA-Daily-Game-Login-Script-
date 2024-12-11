@@ -7,7 +7,7 @@ from email.message import EmailMessage
 
 
 #login information, configure your own .env file with login information for the TA website
-
+print("test!")
 env_path = Path(".env")
 load_dotenv(dotenv_path=env_path)
 ta_username = os.getenv("TAUSERNAME")
