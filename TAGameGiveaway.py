@@ -54,6 +54,7 @@ except Exception as e:
 
 """The following module determines if the user has won the giveaway and then notifies the user via a email message"""
 if giveaway_winner==ta_username:
+    print("Congrats! You have won the giveaway!")
     #587 is the port number for the server for gmail account
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
